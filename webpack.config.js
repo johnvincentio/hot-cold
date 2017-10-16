@@ -16,7 +16,7 @@ const config = {
     filename: 'bundle.js',
   },
 
-	devtool: 'source-map',
+  devtool: 'source-map',
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
@@ -30,8 +30,8 @@ const config = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
-			},
-			{
+      },
+      {
         test: /\.jsx$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
