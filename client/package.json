@@ -10,8 +10,7 @@
     "help": "webpack --help",
     "build": "webpack",
     "prod": "NODE_ENV=production npm run build",
-    "eslint_versions": "npm info eslint-config-airbnb@latest peerDependencies",
-    "USELESS": "nothing"
+    "eslint_versions": "npm info eslint-config-airbnb@latest peerDependencies"
   },
   "keywords": [],
   "author": "",
