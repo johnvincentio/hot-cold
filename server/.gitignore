@@ -1,3 +1,6 @@
-node_modules
-dist/bundle.js
 .env
+.DS_STORE
+node_modules
+.sass-cache
+.env
+logfile.txt

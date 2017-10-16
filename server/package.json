@@ -4,10 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-	"nodemon": "nodemon server.js",
-	"start": "node server.js",
-    "eslint_versions": "npm info eslint-config-airbnb@latest peerDependencies",
-    "USELESS": "nothing"
+		"nodemon": "nodemon server.js",
+		"start": "node server.js",
+    "test": "JWT_SECRET=mocha-key LOG_LEVEL=info GOOGLE_APP_ID=12345 FACEBOOK_APP_ID=12345 FACEBOOK_APP_SECRET=12345 GMAIL_AUTH_CLIENT_ID=12345 mocha ./test",
+    "jsdoc": "./node_modules/.bin/jsdoc -c ./jsdoc.json",
+    "esdoc": "./node_modules/.bin/esdoc -c ./esdoc.json",
+    "sass": "sass --watch public/assets/scss:public/assets/css --line-numbers --style expanded",
+    "sass-min": "sass --watch public/assets/scss:public/assets/css --style compressed",
+    "templates": "./node_modules/.bin/handlebars public/assets/js/templates -e hbs -f public/assets/js/templates.js"
   },
   "keywords": [],
   "author": "",
