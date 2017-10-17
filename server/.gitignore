@@ -4,3 +4,4 @@ node_modules
 .sass-cache
 .env
 logfile.txt
+*.log
