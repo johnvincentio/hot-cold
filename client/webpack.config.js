@@ -10,7 +10,7 @@ const DIST_FOLDER = path.resolve(APP_FOLDER, './dist');
 const DIST_FOLDER_STYLE = path.resolve(DIST_FOLDER, './css');
 
 const config = {
-  entry: ['./src/index.js', './src/scss/index.scss'],
+  entry: ['./src/index.jsx', './src/scss/styles.scss'],
   output: {
     path: path.resolve('dist'),
     filename: 'bundle.js',
@@ -58,10 +58,12 @@ const config = {
       filename: '[name].bundle.css',
       allChunks: true,
     }),
-    new CopyWebpackPlugin([
-      { from: 'index.html', to: '.' },
-    ],
-    { debug: 'info' }),
+    new CopyWebpackPlugin(
+      [
+        { from: 'index.html', to: '.' },
+      ],
+      { debug: 'info' }
+    )
   ],
 };
 
