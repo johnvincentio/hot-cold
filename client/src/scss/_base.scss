@@ -1,218 +1,220 @@
-
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 .hide {
-  display: none!important;
+	display: none !important;
 }
 
 .display {
-  display: block;
+	display: block;
 }
 
 .center {
-  text-align: center;
+	text-align: center;
 }
 
 body {
-    font-size: 16px;
-    font-weight: 400;
-    font-family: $font-family;
-    background-color: palette(primary, body);
-    text-align: center;
+	font-size: 16px;
+	font-weight: 400;
+	font-family: $font-family;
+	background-color: palette(primary, body);
+	text-align: center;
 }
 
-input, textarea, select, button {
-    font-family: $font-family;
+input,
+textarea,
+select,
+button {
+	font-family: $font-family;
 }
 
 .game {
-  background-color: palette(primary, game);
-  color: palette(header, text);
-  margin: 12px;
-  height: 96vh;
+	background-color: palette(primary, game);
+	color: palette(header, text);
+	margin: 12px;
+	height: 96vh;
 }
 
 header nav button {
-  background-color: palette(nav, bg);
-  color: palette(nav, text);
-  border: none transparent;
-  outline: none;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1.5em;
-  text-align: center;
-  padding: 15px;
-  cursor: pointer;
+	background-color: palette(nav, bg);
+	color: palette(nav, text);
+	border: none transparent;
+	outline: none;
+	text-decoration: none;
+	font-weight: 500;
+	font-size: 1.5em;
+	text-align: center;
+	padding: 15px;
+	cursor: pointer;
 
-  &:hover,
-  &:focus {
-      color: palette(nav, button-active);
-  }
-  &:first-child {
-    float: left;
-  }
-  &:last-child {
-    float: right;
-  }
+	&:hover,
+	&:focus {
+		color: palette(nav, button-active);
+	}
+	&:first-child {
+		float: left;
+	}
+	&:last-child {
+		float: right;
+	}
 }
 
 .board {
-  width: $width;
-  margin: 0 auto;
-  padding: 50px 0;
-  h1 {
-    color: palette(nav, text);
-    font-weight: 900;
-    font-size: 3em;
-    padding: 1em;
-  }
+	width: $width;
+	margin: 0 auto;
+	padding: 50px 0;
+	h1 {
+		color: palette(nav, text);
+		font-weight: 900;
+		font-size: 3em;
+		padding: 1em;
+	}
 }
 
 .comment {
-  background-color: palette(comments, bg);
-  color: palette(comments, text);
-  font-weight: 400;
-  font-size: 1.5em;
-  padding: 1em 0.5em;
+	background-color: palette(comments, bg);
+	color: palette(comments, text);
+	font-weight: 400;
+	font-size: 1.5em;
+	padding: 1em 0.5em;
 }
 
 .guess-form {
-  background-color: palette(guess-form, bg);
+	background-color: palette(guess-form, bg);
 
-  input {
-    background-color: palette(guess-form, input-bg);
-    color: palette(guess-form, text);
-    width: 300px;
-    height: 50px;
-    margin: 0.9em auto;
-    border: solid 1px #1f253d;
-    border-radius: 4px;
-    &.guess-text {
-      font-size: 2em;
-      text-align: center;
-    }
-  }
+	input {
+		background-color: palette(guess-form, input-bg);
+		color: palette(guess-form, text);
+		width: 300px;
+		height: 50px;
+		margin: 0.9em auto;
+		border: solid 1px #1f253d;
+		border-radius: 4px;
+		&.guess-text {
+			font-size: 2em;
+			text-align: center;
+		}
+	}
 }
 
 .guessed-list {
-  background-color: palette(guess-list, bg);
-  text-align: left;
+	background-color: palette(guess-list, bg);
+	text-align: left;
 
-  div {
-    background-color: palette(guess-list, item-bg);
-    display: inline-block;
-    width: 8%;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 5px;
-    padding: 5px 0;
-    border-radius: 3px;
-  }
+	div {
+		background-color: palette(guess-list, item-bg);
+		display: inline-block;
+		width: 8%;
+		text-align: center;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		margin-left: 5px;
+		padding: 5px 0;
+		border-radius: 3px;
+	}
 }
 
 .guess {
-  background-color: palette(guess, bg);
-  color: palette(guess, text);
-  font-weight: 400;
-  font-size: 1.5em;
-  padding: 1em 0.5em;
+	background-color: palette(guess, bg);
+	color: palette(guess, text);
+	font-weight: 400;
+	font-size: 1.5em;
+	padding: 1em 0.5em;
 
-  span {
-    color: palette(guess, text2);
-    padding: 0 5px;
-  }
+	span {
+		color: palette(guess, text2);
+		padding: 0 5px;
+	}
 }
 
 .random {
-  background-color: green;
-  padding: 1em 0.5em;
+	background-color: green;
+	padding: 1em 0.5em;
 }
 
 .world-record {
-  background-color: green;
-  padding: 1em 0.5em;
+	background-color: green;
+	padding: 1em 0.5em;
 }
 
 .overlay {
-  background-color: palette(help, bg);
-  width: 97.5%;
-  height: 96vh;
-  z-index: 1000;
-  position: absolute;
-  top: 12px;
-  left: 12px;
+	background-color: palette(help, bg);
+	width: 97.5%;
+	height: 96vh;
+	z-index: 1000;
+	position: absolute;
+	top: 12px;
+	left: 12px;
 
-  .content {
-    border-radius: 3px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    position: relative;
-    width: 600px;
-    top: 15%;
-    margin: auto auto;
+	.content {
+		border-radius: 3px;
+		border: 1px solid rgba(0, 0, 0, 0.1);
+		position: relative;
+		width: 600px;
+		top: 15%;
+		margin: auto auto;
 
-    h3 {
-      margin: 0;
-      padding: 0.4em;
-      text-align: center;
-      font-size: 2.4em;
-      font-weight: 300;
-      opacity: 0.8;
-      background: rgba(0,0,0,0.1);
-      border-radius: 3px 3px 0 0;
-    }
+		h3 {
+			margin: 0;
+			padding: 0.4em;
+			text-align: center;
+			font-size: 2.4em;
+			font-weight: 300;
+			opacity: 0.8;
+			background: rgba(0, 0, 0, 0.1);
+			border-radius: 3px 3px 0 0;
+		}
 
-    > div {
-      padding: 15px 40px 30px;
-      font-weight: 300;
-      font-size: 1.15em;
+		> div {
+			padding: 15px 40px 30px;
+			font-weight: 300;
+			font-size: 1.15em;
 
-      p {
-        padding: 10px 0;
-        line-height: 2em;
-        text-align: justify;
-      }
+			p {
+				padding: 10px 0;
+				line-height: 2em;
+				text-align: justify;
+			}
 
-      ul {
-        margin-bottom: -30px;
-        padding: 0 0 30px 20px;
-        text-align: left;
+			ul {
+				margin-bottom: -30px;
+				padding: 0 0 30px 20px;
+				text-align: left;
 
-        li {
-          padding: 5px 0;
-          display: block;
-          list-style-type: disc;
-          line-height: 1.5em;
+				li {
+					padding: 5px 0;
+					display: block;
+					list-style-type: disc;
+					line-height: 1.5em;
 
-          strong {
-            text-decoration: underline;
-            font-weight: 300;
-          }
-        }
-      }
+					strong {
+						text-decoration: underline;
+						font-weight: 300;
+					}
+				}
+			}
 
-      button {
-        background-color: palette(help, button);
-        color: palette(nav, text);
-        border: none transparent;
-        outline: none;
-        text-decoration: none;
-        font-weight: 300;
-        font-size: 1em;
-        text-align: center;
-        padding: 15px;
-        border-radius: 3px;
-        cursor: pointer;
-      
-        &:hover,
-        &:focus {
-            color: palette(help, button-active);
-        }
-      }
-    }
-  }
+			button {
+				background-color: palette(help, button);
+				color: palette(nav, text);
+				border: none transparent;
+				outline: none;
+				text-decoration: none;
+				font-weight: 300;
+				font-size: 1em;
+				text-align: center;
+				padding: 15px;
+				border-radius: 3px;
+				cursor: pointer;
+
+				&:hover,
+				&:focus {
+					color: palette(help, button-active);
+				}
+			}
+		}
+	}
 }

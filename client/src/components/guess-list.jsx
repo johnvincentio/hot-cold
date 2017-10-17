@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -6,20 +5,16 @@ import PropTypes from 'prop-types';
 import GuessItem from './guess-item';
 
 function GuessList(props) {
-  const alreadyGuessed = props.guessed.map(item => <GuessItem guess={item} key={item} />);
-  return (
-    <div className="guessed-list">
-      {alreadyGuessed}
-    </div>
-  );
+	const alreadyGuessed = props.guessed.map(item => <GuessItem guess={item} key={item} />);
+	return <div className="guessed-list">{alreadyGuessed}</div>;
 }
 
 GuessList.propTypes = {
-  guessed: PropTypes.arrayOf(PropTypes.number).isRequired,
+	guessed: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
 
 const mapStateToProps = state => ({
-  guessed: state.guessed,
+	guessed: state.guessed,
 });
 
 export default connect(mapStateToProps)(GuessList);
