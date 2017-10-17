@@ -1,14 +1,11 @@
 {
 	"extends": "airbnb",
-  "env": {
-    "node": true,
-    "browser": false,
-    "es6": true
-  },
-  "globals": {
-  },
-  "rules": {
-  },
-  "plugins": [
-  ]
+	"env": {
+		"node": true,
+		"browser": false,
+		"es6": true
+	},
+	"globals": {},
+	"rules": {},
+	"plugins": []
 }

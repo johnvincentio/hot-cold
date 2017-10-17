@@ -20,6 +20,7 @@ function Board(props) {
       <div className="guess">Guess #<span>{props.guess}</span></div>
       <GuessList />
       {/* <div className="random">Random #{props.random}</div> */}
+      <div className="world-record">World record is #{props.random} guesses.</div>
     </section>
   );
 }

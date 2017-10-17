@@ -1,13 +1,12 @@
 {
-  "extends": "airbnb",
-  "env": {
-    "browser": true
+	"extends": "airbnb",
+	"env": {
+		"browser": true
 	},
-	"globals": {
-	},
+	"globals": {},
 	"rules": {
+		"indent": [2, "tab"],
+		"no-tabs": 0
 	},
-  "plugins": [
-    "react"
-  ]
+	"plugins": ["react", "jsx-a11y", "import"]
 }
