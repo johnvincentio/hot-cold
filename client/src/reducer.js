@@ -1,20 +1,15 @@
 
 import { combineReducers } from 'redux';
 
-import helpReducer from './help/help.reducer';
+import help from './help/help.reducer';
 // import boardReducer from './board/board.reducer';
 
 const rootReducer = combineReducers({
-	help: helpReducer,
+	helpReducer: help,
+//	board: boardReducer,
 });
 
 export default rootReducer;
-
-// export default combineReducers({
-// 	help: helpReducer,
-// //	boardReducer,
-// });
-
 
 /*
 import * as actions from '../actions/index';

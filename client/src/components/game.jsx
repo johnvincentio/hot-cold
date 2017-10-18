@@ -7,7 +7,7 @@ import Help from '../help/help';
 import Navigation from './navigation';
 
 // eslint-disable-next-line import/no-named-as-default
-// import Board from './board';
+// import Board from '../board/board';
 
 function Game() {
 	return (

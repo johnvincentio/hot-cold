@@ -9,7 +9,6 @@ import * as actions from '../help/help.actions';
 export class Help extends React.Component {
 	constructor(props) {
 		super(props);
-		console.log(props);
 		this.dismiss = this.dismiss.bind(this);
 	}
 
@@ -59,7 +58,7 @@ Help.propTypes = {
 };
 
 const mapStateToProps = state => ({
-	help: state.help,
+	help: state.helpReducer.help,
 });
 
 const mapDispatchToProps = dispatch => ({

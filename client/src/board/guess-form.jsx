@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import * as actions from '../actions/index';
+import * as actions from '../board/board.actions';
 
 export class GuessForm extends React.Component {
 	constructor(props) {

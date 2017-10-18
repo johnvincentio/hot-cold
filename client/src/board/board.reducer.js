@@ -10,28 +10,49 @@ import Utils from '../utils';
 // eslint-disable-next-line no-mixed-operators
 const randomInteger = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
-export default (state = {}, action) => {
+const initialState = {
+	guessed: [],
+	comment: 'Make your Guess!',
+	random: randomInteger(1, 100),
+	completed: false,
+	best: 51,
+};
+
+export default (state = initialState, action) => {
+	console.log('>>> board.reducer; action.type '+action.type);
 	switch (action.type) {
 	case USER_GUESSED_NUMBER: {
 		const comment = Utils.handleComment(state.random, action.guess);
 		const completed = state.random === action.guess;
 		if (action.guess > 0 && action.guess < 101) {
-			return Object.assign({}, state, {
+			return {
 				guessed: [...state.guessed, action.guess],
 				comment,
 				completed,
-			});
+			};
+			// return Object.assign({}, state, {
+			// 	guessed: [...state.guessed, action.guess],
+			// 	comment,
+			// 	completed,
+			// });
 		}
-		return Object.assign({}, state, { guessed: state.guessed, comment, completed });
+//		return Object.assign({}, state, { guessed: state.guessed, comment, completed });
+		return { guessed: state.guessed, comment, completed };
 	}
 
 	case NEW_GAME: {
-		return Object.assign({}, state, {
+		return {
 			guessed: [],
 			comment: 'Make your Guess!',
 			random: randomInteger(1, 100),
 			completed: false,
-		});
+		};
+		// return Object.assign({}, state, {
+		// 	guessed: [],
+		// 	comment: 'Make your Guess!',
+		// 	random: randomInteger(1, 100),
+		// 	completed: false,
+		// });
 	}
 
 	case FETCH_DESCRIPTION_SUCCESS: {
@@ -65,6 +86,8 @@ export default (state = {}, action) => {
 	}
 
 	default: {
+		console.log('board.reducer, default, state = ');
+		console.log(state);
 		return state;
 	}
 	}
