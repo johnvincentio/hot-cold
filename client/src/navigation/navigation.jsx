@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import * as actions from '../help/help.actions';
+import * as actions from '../navigation/navigation.actions';
 
 export class Navigation extends React.Component {
 	constructor(props) {

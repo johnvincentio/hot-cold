@@ -10,7 +10,6 @@ import GuessForm from './guess-form';
 import GuessList from './guess-list';
 
 function Board(props) {
-	console.log(props);
 	const form = props.completed ? '' : <GuessForm />;
 	return (
 		<section className="board">
@@ -23,8 +22,8 @@ function Board(props) {
 				Guess #<span>{props.guess}</span>
 			</div>
 			<GuessList />
-			{/* <div className="random">Random #{props.random}</div> */}
-			<div className="world-record">World record is #{props.random} guesses.</div>
+			<div className="random">Random #{props.random}</div>
+			<div className="world-record">World record is #{props.best} guesses.</div>
 		</section>
 	);
 }
@@ -32,22 +31,17 @@ function Board(props) {
 Board.propTypes = {
 	comment: PropTypes.string.isRequired,
 	guess: PropTypes.number.isRequired,
-	// random: PropTypes.number.isRequired,
+	random: PropTypes.number.isRequired,
 	completed: PropTypes.bool.isRequired,
+	best: PropTypes.number.isRequired,
 };
 
-// const mapStateToProps = state => ({
-// 	comment: state.comment,
-// 	// guess: state.guessed.length,
-// 	random: state.random,
-// 	completed: state.completed,
-// });
-
 const mapStateToProps = state => ({
-	comment: state.comment,
-	// guess: state.guessed.length,
-	random: state.random,
-	completed: state.completed,
+	comment: state.boardReducer.comment,
+	guess: state.boardReducer.guessed.length,
+	random: state.boardReducer.random,
+	completed: state.boardReducer.completed,
+	best: state.boardReducer.best,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -55,4 +49,3 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Board);
-// export default connect(null, mapDispatchToProps)(Board);

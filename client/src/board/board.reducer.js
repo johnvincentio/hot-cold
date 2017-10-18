@@ -18,41 +18,28 @@ const initialState = {
 	best: 51,
 };
 
-export default (state = initialState, action) => {
-	console.log('>>> board.reducer; action.type '+action.type);
+function board(state = initialState, action) {
 	switch (action.type) {
 	case USER_GUESSED_NUMBER: {
 		const comment = Utils.handleComment(state.random, action.guess);
 		const completed = state.random === action.guess;
 		if (action.guess > 0 && action.guess < 101) {
-			return {
+			return Object.assign({}, state, {
 				guessed: [...state.guessed, action.guess],
 				comment,
 				completed,
-			};
-			// return Object.assign({}, state, {
-			// 	guessed: [...state.guessed, action.guess],
-			// 	comment,
-			// 	completed,
-			// });
+			});
 		}
-//		return Object.assign({}, state, { guessed: state.guessed, comment, completed });
-		return { guessed: state.guessed, comment, completed };
+		return Object.assign({}, state, { guessed: state.guessed, comment, completed });
 	}
 
 	case NEW_GAME: {
-		return {
+		return Object.assign({}, state, {
 			guessed: [],
 			comment: 'Make your Guess!',
 			random: randomInteger(1, 100),
 			completed: false,
-		};
-		// return Object.assign({}, state, {
-		// 	guessed: [],
-		// 	comment: 'Make your Guess!',
-		// 	random: randomInteger(1, 100),
-		// 	completed: false,
-		// });
+		});
 	}
 
 	case FETCH_DESCRIPTION_SUCCESS: {
@@ -86,82 +73,9 @@ export default (state = initialState, action) => {
 	}
 
 	default: {
-		console.log('board.reducer, default, state = ');
-		console.log(state);
 		return state;
 	}
 	}
-};
+}
 
-
-/*
-import * as actions from '../actions/index';
-
-import Utils from '../utils';
-
-const initialState = {
-	guessed: [],
-	comment: 'Make your Guess!',
-	random: randomInteger(1, 100),
-	completed: false,
-	help: false,
-	best: 51,
-};
-
-export const repositoryReducer = (state = initialState, action) => {
-	if (action.type === actions.USER_GUESSED_NUMBER) {
-		const comment = Utils.handleComment(state.random, action.guess);
-		const completed = state.random === action.guess;
-		if (action.guess > 0 && action.guess < 101) {
-			return Object.assign({}, state, {
-				guessed: [...state.guessed, action.guess],
-				comment,
-				completed,
-			});
-		}
-		return Object.assign({}, state, { guessed: state.guessed, comment, completed });
-	}
-
-	if (action.type === actions.NEW_GAME) {
-		return Object.assign({}, state, {
-			guessed: [],
-			comment: 'Make your Guess!',
-			random: randomInteger(1, 100),
-			completed: false,
-		});
-	}
-
-	if (action.type === actions.FETCH_DESCRIPTION_SUCCESS) {
-		// Find the index of the matching repository
-		const index = state.findIndex(repository => repository.name === action.repository);
-
-		if (index === -1) {
-			throw new Error('Could not find repository');
-		}
-
-		const before = state.slice(0, index);
-		const after = state.slice(index + 1);
-		const newRepository = Object.assign({}, state[index], {
-			description: action.description,
-		});
-		return [...before, newRepository, ...after];
-	}
-	if (action.type === actions.FETCH_DESCRIPTION_ERROR) {
-		// Find the index of the matching repository
-		const index = state.findIndex(repository => repository.name === action.repository);
-
-		if (index === -1) {
-			throw new Error('Could not find repository');
-		}
-
-		const before = state.slice(0, index);
-		const after = state.slice(index + 1);
-		const newRepository = Object.assign({}, state[index], { description: 'N/A' });
-		return [...before, newRepository, ...after];
-	}
-
-	return state;
-};
-
-export default repositoryReducer;
-*/
+export default board;

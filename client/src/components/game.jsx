@@ -4,17 +4,17 @@ import React from 'react';
 import Help from '../help/help';
 
 // eslint-disable-next-line import/no-named-as-default
-import Navigation from './navigation';
+import Navigation from '../navigation/navigation';
 
 // eslint-disable-next-line import/no-named-as-default
-// import Board from '../board/board';
+import Board from '../board/board';
 
 function Game() {
 	return (
 		<div className="game">
 			<Help />
 			<Navigation />
-			{/* <Board /> */}
+			<Board />
 		</div>
 	);
 }

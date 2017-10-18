@@ -1,7 +1,6 @@
 
 import {
 	USER_GUESSED_NUMBER,
-	NEW_GAME,
 	FETCH_DESCRIPTION_SUCCESS,
 	FETCH_DESCRIPTION_ERROR,
 } from '../constants/action.types';
@@ -9,10 +8,6 @@ import {
 export const userGuessedNumber = guess => ({
 	type: USER_GUESSED_NUMBER,
 	guess,
-});
-
-export const handleNewGame = () => ({
-	type: NEW_GAME,
 });
 
 export const fetchDescriptionSuccess = (repository, description) => ({

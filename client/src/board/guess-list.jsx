@@ -14,7 +14,7 @@ GuessList.propTypes = {
 };
 
 const mapStateToProps = state => ({
-	guessed: state.guessed,
+	guessed: state.boardReducer.guessed,
 });
 
 export default connect(mapStateToProps)(GuessList);

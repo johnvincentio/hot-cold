@@ -24,21 +24,6 @@ function help(state = initialState, action) {
 export default help;
 
 /*
-export default (state = false, action) => {
-	switch (action.type) {
-	case HELP: {
-		return true;
-	}
-	case DISMISS_HELP: {
-		return false;
-	}
-	default:
-		return state;
-	}
-};
-*/
-
-/*
 export default (state = {}, action) => {
 	switch (action.type) {
 	case HELP: {
