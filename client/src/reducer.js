@@ -1,3 +1,22 @@
+
+import { combineReducers } from 'redux';
+
+import helpReducer from './help/help.reducer';
+// import boardReducer from './board/board.reducer';
+
+const rootReducer = combineReducers({
+	help: helpReducer,
+});
+
+export default rootReducer;
+
+// export default combineReducers({
+// 	help: helpReducer,
+// //	boardReducer,
+// });
+
+
+/*
 import * as actions from '../actions/index';
 
 import Utils from '../utils';
@@ -37,18 +56,6 @@ export const repositoryReducer = (state = initialState, action) => {
 		});
 	}
 
-	if (action.type === actions.HELP) {
-		return Object.assign({}, state, {
-			help: true,
-		});
-	}
-
-	if (action.type === actions.DISMISS_HELP) {
-		return Object.assign({}, state, {
-			help: false,
-		});
-	}
-
 	if (action.type === actions.FETCH_DESCRIPTION_SUCCESS) {
 		// Find the index of the matching repository
 		const index = state.findIndex(repository => repository.name === action.repository);
@@ -82,3 +89,4 @@ export const repositoryReducer = (state = initialState, action) => {
 };
 
 export default repositoryReducer;
+*/

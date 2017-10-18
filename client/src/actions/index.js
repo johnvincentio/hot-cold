@@ -18,15 +18,7 @@ export const handleNewGame = () => ({
 	type: NEW_GAME,
 });
 
-export const HELP = 'HELP';
-export const handleHelp = () => ({
-	type: HELP,
-});
 
-export const DISMISS_HELP = 'DISMISS_HELP';
-export const handleDismissHelp = () => ({
-	type: DISMISS_HELP,
-});
 
 export const FETCH_DESCRIPTION_SUCCESS = 'FETCH_DESCRIPTION_SUCCESS';
 export const fetchDescriptionSuccess = (repository, description) => ({

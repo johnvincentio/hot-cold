@@ -2,8 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
-import store from './store';
+import createStore from './store';
 import Game from './components/game';
+
+const initialState = {};
+const store = createStore(initialState);
 
 document.addEventListener('DOMContentLoaded', () => {
 	ReactDOM.render(
