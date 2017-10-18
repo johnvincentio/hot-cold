@@ -49,7 +49,7 @@ export class GuessForm extends React.Component {
 
 GuessForm.propTypes = {
 	actions: PropTypes.shape({
-		userGuessedNumber: PropTypes.func,
+		userGuessedNumber: PropTypes.func.isRequired,
 	}).isRequired,
 };
 

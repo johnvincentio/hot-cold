@@ -52,7 +52,7 @@ export class Help extends React.Component {
 
 Help.propTypes = {
 	actions: PropTypes.shape({
-		handleDismissHelp: PropTypes.func,
+		handleDismissHelp: PropTypes.func.isRequired,
 	}).isRequired,
 	help: PropTypes.bool.isRequired,
 };

@@ -41,8 +41,8 @@ export class Navigation extends React.Component {
 
 Navigation.propTypes = {
 	actions: PropTypes.shape({
-		handleHelp: PropTypes.func,
-		handleNewGame: PropTypes.func,
+		handleHelp: PropTypes.func.isRequired,
+		handleNewGame: PropTypes.func.isRequired,
 	}).isRequired,
 };
 
