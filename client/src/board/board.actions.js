@@ -1,8 +1,10 @@
 
+import 'isomorphic-fetch';
+
 import {
 	USER_GUESSED_NUMBER,
-	FETCH_DESCRIPTION_SUCCESS,
-	FETCH_DESCRIPTION_ERROR,
+	FETCH_SCORE_SUCCESS,
+	FETCH_SCORE_ERROR,
 } from '../constants/action.types';
 
 export const userGuessedNumber = guess => ({
@@ -10,20 +12,18 @@ export const userGuessedNumber = guess => ({
 	guess,
 });
 
-export const fetchDescriptionSuccess = (repository, description) => ({
-	type: FETCH_DESCRIPTION_SUCCESS,
-	repository,
-	description,
+export const fetchScoreSuccess = score => ({
+	type: FETCH_SCORE_SUCCESS,
+	score,
 });
 
-export const fetchDescriptionError = (repository, error) => ({
-	type: FETCH_DESCRIPTION_ERROR,
-	repository,
+export const fetchScoreError = error => ({
+	type: FETCH_SCORE_ERROR,
 	error,
 });
 
-export const fetchDescription = repository => (dispatch) => {
-	const url = `https://api.github.com/repos/${repository}`;
+export const fetchScore = () => (dispatch) => {
+	const url = 'http://localhost:8080/api/score/get';
 	return fetch(url)
 		.then((response) => {
 			if (!response.ok) {
@@ -34,6 +34,6 @@ export const fetchDescription = repository => (dispatch) => {
 			return response;
 		})
 		.then(response => response.json())
-		.then(data => dispatch(fetchDescriptionSuccess(repository, data.description)))
-		.catch(error => dispatch(fetchDescriptionError(repository, error)));
+		.then(data => dispatch(fetchScoreSuccess(data.score)))
+		.catch(error => dispatch(fetchScoreError(error)));
 };

@@ -1,8 +1,8 @@
 import {
 	USER_GUESSED_NUMBER,
 	NEW_GAME,
-	FETCH_DESCRIPTION_SUCCESS,
-	FETCH_DESCRIPTION_ERROR,
+	FETCH_SCORE_SUCCESS,
+	FETCH_SCORE_ERROR,
 } from '../constants/action.types';
 
 import Utils from '../utils';
@@ -42,7 +42,7 @@ function board(state = initialState, action) {
 		});
 	}
 
-	case FETCH_DESCRIPTION_SUCCESS: {
+	case FETCH_SCORE_SUCCESS: {
 		// Find the index of the matching repository
 		const idx = state.findIndex(repository => repository.name === action.repository);
 
@@ -58,7 +58,7 @@ function board(state = initialState, action) {
 		return [...bef, repo1, ...aft];
 	}
 
-	case FETCH_DESCRIPTION_ERROR: {
+	case FETCH_SCORE_ERROR: {
 		// Find the index of the matching repository
 		const index = state.findIndex(repository => repository.name === action.repository);
 

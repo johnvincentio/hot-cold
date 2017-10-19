@@ -9,23 +9,34 @@ import * as actions from '../board/board.actions';
 import GuessForm from './guess-form';
 import GuessList from './guess-list';
 
-function Board(props) {
-	const form = props.completed ? '' : <GuessForm />;
-	return (
-		<section className="board">
-			<div>
-				<h1>Hot or Cold</h1>
-			</div>
-			<div className="comment">{props.comment}</div>
-			{form}
-			<div className="guess">
-				Guess #<span>{props.guess}</span>
-			</div>
-			<GuessList />
-			<div className="random">Random #{props.random}</div>
-			<div className="world-record">World record is #{props.best} guesses.</div>
-		</section>
-	);
+export class Board extends React.Component {
+	constructor(props) {
+		super(props);
+		console.log(props);
+	}
+	componentDidMount() {
+		// this.props.dispatch(actions.fetchScore());
+		this.props.actions.fetchScore();
+	}
+
+	render() {
+		const form = this.props.completed ? '' : <GuessForm />;
+		return (
+			<section className="board">
+				<div>
+					<h1>Hot or Cold</h1>
+				</div>
+				<div className="comment">{this.props.comment}</div>
+				{form}
+				<div className="guess">
+					Guess #<span>{this.props.guess}</span>
+				</div>
+				<GuessList />
+				<div className="random">Random #{this.props.random}</div>
+				<div className="world-record">World record is #{this.props.best} guesses.</div>
+			</section>
+		);
+	}
 }
 
 Board.propTypes = {
@@ -34,6 +45,9 @@ Board.propTypes = {
 	random: PropTypes.number.isRequired,
 	completed: PropTypes.bool.isRequired,
 	best: PropTypes.number.isRequired,
+	actions: PropTypes.shape({
+		fetchScore: PropTypes.func.isRequired,
+	}).isRequired,
 };
 
 const mapStateToProps = state => ({
