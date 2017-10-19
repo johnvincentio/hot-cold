@@ -3,6 +3,7 @@
  *
  * @module middlewareExpress
  * @requires express
+ * @requires http-proxy-middleware
  * @requires morgan
  * @requires body-parser
  * @requires path
@@ -16,6 +17,7 @@
  */
 
 const express = require('express');
+const proxy = require('http-proxy-middleware');
 const morgan = require('morgan');
 
 const bodyParser = require('body-parser');
@@ -48,9 +50,25 @@ const logRequest = (req, res, next) => {
 module.exports = (app) => {
 	mongoose.Promise = global.Promise;
 
+	// app.use(proxy('http://localhost:8025/', {
+	// 	logLevel: 'warn', // Keep the logs clean
+	// 	ws: true, // Proxy websockets too
+	// 	router: {
+	// 		// Anything to /api goes to our backend
+	// 		'localhost:8025/api': 'http://localhost:3000',
+	// 	},
+	// }));
+
 	app.use(morgan('common', { stream: logger.stream }));
 
 	app.use(express.static(path.resolve(__dirname, '../public')));
+
+	app.use((req, res, next) => {
+		res.header('Access-Control-Allow-Origin', '*');
+		res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+		res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+		next();
+	});
 
 	app.use('/assets', express.static(path.resolve(__dirname, '../public/assets')));
 

@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-		"nodemon": "nodemon server.js",
-		"start": "node server.js",
+    "nodemon": "nodemon server.js",
+    "start": "node server.js",
     "test": "LOG_LEVEL=info mocha ./test",
     "esdoc": "./node_modules/.bin/esdoc -c ./esdoc.json"
   },
@@ -32,6 +32,7 @@
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
     "express-jwt": "^5.3.0",
+    "http-proxy-middleware": "^0.17.4",
     "joi": "^13.0.0",
     "jsonwebtoken": "^8.1.0",
     "mongoose": "^4.12.3",

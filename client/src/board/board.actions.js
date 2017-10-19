@@ -23,7 +23,7 @@ export const fetchScoreError = error => ({
 });
 
 export const fetchScore = () => (dispatch) => {
-	const url = 'http://localhost:8080/api/score/get';
+	const url = 'http://localhost:3001/api/score/get';
 	return fetch(url)
 		.then((response) => {
 			if (!response.ok) {

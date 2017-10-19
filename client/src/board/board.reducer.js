@@ -15,7 +15,7 @@ const initialState = {
 	comment: 'Make your Guess!',
 	random: randomInteger(1, 100),
 	completed: false,
-	best: 51,
+	best: 999,
 };
 
 function board(state = initialState, action) {
@@ -43,33 +43,22 @@ function board(state = initialState, action) {
 	}
 
 	case FETCH_SCORE_SUCCESS: {
+		console.log('>>> FETCH_SCORE_SUCCESS');
+		console.log(state);
+		console.log('(1) FETCH_SCORE_SUCCESS');
+		console.log(action);
+		console.log('(2) FETCH_SCORE_SUCCESS');
 		// Find the index of the matching repository
-		const idx = state.findIndex(repository => repository.name === action.repository);
 
-		if (idx === -1) {
-			throw new Error('Could not find repository');
-		}
-
-		const bef = state.slice(0, idx);
-		const aft = state.slice(idx + 1);
-		const repo1 = Object.assign({}, state[idx], {
-			description: action.description,
+		return Object.assign({}, state, {
+			best: action.score,
 		});
-		return [...bef, repo1, ...aft];
 	}
 
 	case FETCH_SCORE_ERROR: {
-		// Find the index of the matching repository
-		const index = state.findIndex(repository => repository.name === action.repository);
-
-		if (index === -1) {
-			throw new Error('Could not find repository');
-		}
-
-		const before = state.slice(0, index);
-		const after = state.slice(index + 1);
-		const newRepository = Object.assign({}, state[index], { description: 'N/A' });
-		return [...before, newRepository, ...after];
+		return Object.assign({}, state, {
+			best: 99,
+		});
 	}
 
 	default: {
