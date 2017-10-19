@@ -21,10 +21,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
-const hbs = require('express-handlebars');
 const cookieParser = require('cookie-parser');
-
-const favicon = require('serve-favicon');
 
 const { logger } = require('./logger');
 
