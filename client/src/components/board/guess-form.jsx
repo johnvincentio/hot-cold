@@ -4,11 +4,14 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import * as actions from '../board/board.actions';
+import * as actions from '../../actions/';
 
 export class GuessForm extends React.Component {
 	constructor(props) {
 		super(props);
+		console.log('(1) GuessForm; props');
+		console.log(props);
+		console.log('(2) GuessForm; props');
 		this.handleGuess = this.handleGuess.bind(this);
 		this.handleKeyPress = this.handleKeyPress.bind(this);
 	}
@@ -19,6 +22,9 @@ export class GuessForm extends React.Component {
 			const guess = parseInt(input, 10);
 			this.props.actions.userGuessedNumber(guess);
 			this.guessInput.value = '';
+			if (guess === this.props.random) {
+				this.props.actions.sendScore(this.props.guessed.length + 1);
+			}
 		}
 	}
 
@@ -48,13 +54,21 @@ export class GuessForm extends React.Component {
 }
 
 GuessForm.propTypes = {
+	random: PropTypes.number.isRequired,
+	guessed: PropTypes.arrayOf(PropTypes.number).isRequired,
 	actions: PropTypes.shape({
 		userGuessedNumber: PropTypes.func.isRequired,
+		sendScore: PropTypes.func.isRequired,
 	}).isRequired,
 };
+
+const mapStateToProps = state => ({
+	random: state.boardReducer.random,
+	guessed: state.boardReducer.guessed,
+});
 
 const mapDispatchToProps = dispatch => ({
 	actions: bindActionCreators(actions, dispatch),
 });
 
-export default connect(null, mapDispatchToProps)(GuessForm);
+export default connect(mapStateToProps, mapDispatchToProps)(GuessForm);

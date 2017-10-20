@@ -13,12 +13,15 @@ const randomInteger = (min, max) => Math.floor(Math.random() * (max - min + 1)) 
 const initialState = {
 	guessed: [],
 	comment: 'Make your Guess!',
-	random: randomInteger(1, 100),
+	random: 0,
 	completed: false,
 	best: 999,
 };
 
 function board(state = initialState, action) {
+	console.log('(1) reducer; board; action');
+	console.log(action);
+	console.log('(2) reducer; board; action');
 	switch (action.type) {
 	case USER_GUESSED_NUMBER: {
 		const comment = Utils.handleComment(state.random, action.guess);
@@ -34,11 +37,8 @@ function board(state = initialState, action) {
 	}
 
 	case NEW_GAME: {
-		return Object.assign({}, state, {
-			guessed: [],
-			comment: 'Make your Guess!',
+		return Object.assign({}, initialState, {
 			random: randomInteger(1, 100),
-			completed: false,
 		});
 	}
 

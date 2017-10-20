@@ -20,7 +20,7 @@ module.exports = {
  * @param {ServerResponse} res - http response
  */
 	getScore(req, res) {
-		logger.info('Score sent');
+		logger.info(`Lowest score sent ${lowestScore}`);
 		return res.status(200).json({ score: lowestScore });
 	},
 
@@ -36,10 +36,11 @@ module.exports = {
 	sendScore(req, res) {
 		logger.info('--- score/score.controller::sendScore');
 		const { score } = req.body;
-		logger.info(`Score sent = ${score}`);
+		logger.info(`User sent a score of ${score}`);
 		if (score < lowestScore) {
 			lowestScore = score;
 		}
+		logger.info(`Lowest score sent ${lowestScore}`);
 		return res.status(200).json({ score: lowestScore });
 	},
 };

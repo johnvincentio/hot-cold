@@ -1,7 +1,9 @@
 
-☐ try project structure
+☐ handle duplicate guess
 
-☐ server apis
+✔ try project structure @done (2017-10-20 10:07:46)
+
+✔ server apis @done (2017-10-20 10:07:34)
 
 ☐ break up index.js
 
@@ -11,4 +13,25 @@
 ☐ do reducers use different store?
 
 ☐ react tests using jest
+
+☐ rationalize
+navigation.jsx
+handleNewGame(event) {
+	event.preventDefault();
+	this.props.actions.handleNewGame();
+	this.props.actions.fetchScore();
+}
+
+board.jsx
+componentDidMount() {
+	// this.props.dispatch(actions.fetchScore());
+	this.props.actions.handleNewGame();
+	this.props.actions.fetchScore();
+}
+
+☐ Game complete
+sendScore when complete = true
+
+☐ Best score into own reducer and store.
+
 

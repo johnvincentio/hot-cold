@@ -5,10 +5,15 @@
 
 * curl -H "Content-Type:application/json" "http://localhost:3000/api/score/get" 
 
+curl -H "Content-Type:application/json" "http://localhost:3001/api/score/get" 
+
 
 
 ## POST Url
 * curl -i -X POST -H "Content-Type:application/json" http://localhost:3000/api/score/send -d '{"score": 51}'
+
+curl -i -X POST -H "Content-Type:application/json" http://localhost:3001/api/score/send -d '{"score": 51}'
+
 
 package.json
 // "proxy": "http://localhost:3001",

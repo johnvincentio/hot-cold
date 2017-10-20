@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import * as actions from '../help/help.actions';
+// import * as actions from '../help/help.actions';
+import * as actions from '../actions/';
 
 export class Help extends React.Component {
 	constructor(props) {
@@ -20,7 +21,8 @@ export class Help extends React.Component {
 	render() {
 		const display = this.props.help ? 'display' : 'hide';
 		const classes = `overlay ${display}`; // maximum length of 150 characters
-		/* eslint max-len: [2, 150, 4] */ return (
+		/* eslint max-len: [2, 150, 4] */
+		return (
 			<div className={classes}>
 				<div className="content">
 					<h3>What do I do?</h3>
@@ -28,8 +30,7 @@ export class Help extends React.Component {
 						<p>This is a Hot or Cold Number Guessing Game. The game goes like this: </p>
 						<ul>
 							<li>
-								1. I pick a <strong>random secret number</strong> between 1 to 100 and keep it
-								hidden.
+								1. I pick a <strong>random secret number</strong> between 1 to 100 and keep it hidden.
 							</li>
 							<li>
 								2. You need to <strong>guess</strong> until you can find the hidden secret number.

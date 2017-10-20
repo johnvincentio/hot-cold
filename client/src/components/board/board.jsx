@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import * as actions from '../board/board.actions';
+import * as actions from '../../actions/';
 
 // eslint-disable-next-line import/no-named-as-default
 import GuessForm from './guess-form';
@@ -16,6 +16,7 @@ export class Board extends React.Component {
 	}
 	componentDidMount() {
 		// this.props.dispatch(actions.fetchScore());
+		this.props.actions.handleNewGame();
 		this.props.actions.fetchScore();
 	}
 
@@ -46,6 +47,7 @@ Board.propTypes = {
 	completed: PropTypes.bool.isRequired,
 	best: PropTypes.number.isRequired,
 	actions: PropTypes.shape({
+		handleNewGame: PropTypes.func.isRequired,
 		fetchScore: PropTypes.func.isRequired,
 	}).isRequired,
 };

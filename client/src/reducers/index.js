@@ -1,8 +1,8 @@
 
 import { combineReducers } from 'redux';
 
-import help from './help/help.reducer';
-import board from './board/board.reducer';
+import help from './help.reducer';
+import board from './board.reducer';
 
 const rootReducer = combineReducers({
 	helpReducer: help,

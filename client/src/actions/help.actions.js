@@ -1,12 +1,13 @@
+
 import {
 	HELP,
-	NEW_GAME,
+	DISMISS_HELP,
 } from '../constants/action.types';
 
 export const handleHelp = () => ({
 	type: HELP,
 });
 
-export const handleNewGame = () => ({
-	type: NEW_GAME,
+export const handleDismissHelp = () => ({
+	type: DISMISS_HELP,
 });
