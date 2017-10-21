@@ -12,25 +12,15 @@ export class GuessForm extends React.Component {
 		console.log('(1) GuessForm; props');
 		console.log(props);
 		console.log('(2) GuessForm; props');
-		this.handleGuess = this.handleGuess.bind(this);
 		this.handleKeyPress = this.handleKeyPress.bind(this);
-	}
-
-	handleGuess() {
-		const input = this.guessInput.value;
-		if (!Number.isNaN(input)) {
-			const guess = parseInt(input, 10);
-			this.props.actions.userGuessedNumber(guess);
-			this.guessInput.value = '';
-			if (guess === this.props.random) {
-				this.props.actions.sendScore(this.props.guessed.length + 1);
-			}
-		}
 	}
 
 	handleKeyPress(event) {
 		if (event.keyCode === 13 || event.which === 13) {
-			this.handleGuess();
+			// const input = this.guessInput.value;
+			this.props.actions.userGuessedNumber(this.guessInput.value);
+			this.guessInput.value = '';
+			// this.handleGuess();
 		}
 	}
 
@@ -54,8 +44,8 @@ export class GuessForm extends React.Component {
 }
 
 GuessForm.propTypes = {
-	random: PropTypes.number.isRequired,
-	guessed: PropTypes.arrayOf(PropTypes.number).isRequired,
+//	random: PropTypes.number.isRequired,
+//	guessed: PropTypes.arrayOf(PropTypes.number).isRequired,
 	actions: PropTypes.shape({
 		userGuessedNumber: PropTypes.func.isRequired,
 		sendScore: PropTypes.func.isRequired,
@@ -72,3 +62,18 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(GuessForm);
+
+
+	// handleGuess() {
+	// 	const input = this.guessInput.value;
+	// 	this.props.actions.userGuessedNumber(input);
+	// 	this.guessInput.value = '';
+	// 	if (!Number.isNaN(input)) {
+	// 		const guess = parseInt(input, 10);
+	// 		this.props.actions.userGuessedNumber(guess);
+	// 		this.guessInput.value = '';
+	// 		if (guess === this.props.random) {
+	// 			this.props.actions.sendScore(this.props.guessed.length + 1);
+	// 		}
+	// 	}
+	// }

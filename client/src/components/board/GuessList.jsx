@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import GuessItem from './guess-item';
+import GuessItem from './GuessItem';
 
 function GuessList(props) {
 	const alreadyGuessed = props.guessed.map(item => <GuessItem guess={item} key={item} />);

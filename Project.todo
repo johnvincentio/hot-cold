@@ -5,6 +5,8 @@
 
 ✔ server apis @done (2017-10-20 10:07:34)
 
+☐ initial state, set 	random: something useful
+
 ☐ break up index.js
 
 ☐ how to run react app from node
@@ -34,4 +36,14 @@ sendScore when complete = true
 
 ☐ Best score into own reducer and store.
 
-
+☐ guess-form - sort out this.
+	const input = this.guessInput.value;
+	if (!Number.isNaN(input)) {
+		const guess = parseInt(input, 10);
+		this.props.actions.userGuessedNumber(guess);
+		this.guessInput.value = '';
+		if (guess === this.props.random) {
+			this.props.actions.sendScore(this.props.guessed.length + 1);
+		}
+	}
+}

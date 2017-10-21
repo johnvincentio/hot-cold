@@ -1,8 +1,7 @@
+
 import {
 	USER_GUESSED_NUMBER,
 	NEW_GAME,
-	FETCH_SCORE_SUCCESS,
-	FETCH_SCORE_ERROR,
 } from '../constants/action.types';
 
 import Utils from '../utils';
@@ -15,49 +14,60 @@ const initialState = {
 	comment: 'Make your Guess!',
 	random: 0,
 	completed: false,
-	best: 999,
 };
 
-function board(state = initialState, action) {
-	console.log('(1) reducer; board; action');
-	console.log(action);
-	console.log('(2) reducer; board; action');
-	switch (action.type) {
-	case USER_GUESSED_NUMBER: {
+/*
+	if (!Number.isNaN(action.input)) {
+		const guess = parseInt(action.input, 10);
 		const comment = Utils.handleComment(state.random, action.guess);
-		const completed = state.random === action.guess;
-		if (action.guess > 0 && action.guess < 101) {
+		const completed = state.random === guess;
+		if (guess > 0 && guess < 101) {
 			return Object.assign({}, state, {
-				guessed: [...state.guessed, action.guess],
+				guessed: [...state.guessed, guess],
 				comment,
 				completed,
 			});
 		}
-		return Object.assign({}, state, { guessed: state.guessed, comment, completed });
+*/
+/*
+		if (!Number.isNaN(input)) {
+			const guess = parseInt(input, 10);
+			this.props.actions.userGuessedNumber(guess);
+			this.guessInput.value = '';
+			if (guess === this.props.random) {
+				this.props.actions.sendScore(this.props.guessed.length + 1);
+			}
+		}
+	
+		this.props.actions.sendScore(this.props.guessed.length + 1);
+*/
+function board(state = initialState, action) {
+	console.log('(1) reducer; board; action');
+	console.log(action);
+	console.log(state);
+	console.log('(2) reducer; board; action');
+	switch (action.type) {
+	case USER_GUESSED_NUMBER: {
+		if (!Number.isNaN(action.input)) {
+			const guess = parseInt(action.input, 10);
+			const comment = Utils.handleComment(state.random, action.guess);
+			const completed = state.random === guess;
+			if (guess > 0 && guess < 101) {
+				return Object.assign({}, state, {
+					guessed: [...state.guessed, guess],
+					comment,
+					completed,
+				});
+			}
+			return Object.assign({}, state, {
+				comment,
+			});
+		}
+		return state;
 	}
-
 	case NEW_GAME: {
 		return Object.assign({}, initialState, {
 			random: randomInteger(1, 100),
-		});
-	}
-
-	case FETCH_SCORE_SUCCESS: {
-		console.log('>>> FETCH_SCORE_SUCCESS');
-		console.log(state);
-		console.log('(1) FETCH_SCORE_SUCCESS');
-		console.log(action);
-		console.log('(2) FETCH_SCORE_SUCCESS');
-		// Find the index of the matching repository
-
-		return Object.assign({}, state, {
-			best: action.score,
-		});
-	}
-
-	case FETCH_SCORE_ERROR: {
-		return Object.assign({}, state, {
-			best: 99,
 		});
 	}
 

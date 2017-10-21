@@ -6,8 +6,8 @@ import { bindActionCreators } from 'redux';
 import * as actions from '../../actions/';
 
 // eslint-disable-next-line import/no-named-as-default
-import GuessForm from './guess-form';
-import GuessList from './guess-list';
+import GuessForm from './GuessForm';
+import GuessList from './GuessList';
 
 export class Board extends React.Component {
 	constructor(props) {
@@ -20,7 +20,18 @@ export class Board extends React.Component {
 		this.props.actions.fetchScore();
 	}
 
+	componentWillUpdate(nextProps, nextState) {
+		console.log('(1) Board; componentWillUpdate');
+		console.log(nextProps);
+		console.log(nextState);
+		console.log('(2) Board; componentWillUpdate');
+		// if (nextState.open == true && this.state.open == false) {
+		// 	this.props.onWillOpen();
+		// }
+	}
+
 	render() {
+		// this.props.actions.sendScore(this.props.guessed.length + 1);
 		const form = this.props.completed ? '' : <GuessForm />;
 		return (
 			<section className="board">
@@ -57,7 +68,7 @@ const mapStateToProps = state => ({
 	guess: state.boardReducer.guessed.length,
 	random: state.boardReducer.random,
 	completed: state.boardReducer.completed,
-	best: state.boardReducer.best,
+	best: state.topScoreReducer.best,
 });
 
 const mapDispatchToProps = dispatch => ({

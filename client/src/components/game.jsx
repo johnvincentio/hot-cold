@@ -1,9 +1,9 @@
 import React from 'react';
 
 /* eslint-disable import/no-named-as-default */
-import Help from './help';
-import Navigation from './navigation';
-import Board from './board/board';
+import Help from './Help';
+import Navigation from './Navigation';
+import Board from './board/Board';
 
 const Game = () => (
 	<div className="game">
