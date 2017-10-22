@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import createStore from './store';
-import Game from './components/game';
+import Game from './components/Game';
 
 const initialState = {};
 const store = createStore(initialState);

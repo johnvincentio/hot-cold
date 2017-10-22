@@ -8,11 +8,11 @@ const initialState = {
 	best: 999,
 };
 
-function topScore(state = initialState, action) {
-	console.log('(1) reducer; topScore; action');
+function fetchTopScore(state = initialState, action) {
+	console.log('>>> reducer; topScore; action');
 	console.log(state);
 	console.log(action);
-	console.log('(2) reducer; topScore; action');
+	console.log('<<< reducer; topScore; action');
 	switch (action.type) {
 	case FETCH_SCORE_SUCCESS: {
 		return Object.assign({}, state, {
@@ -31,4 +31,4 @@ function topScore(state = initialState, action) {
 	}
 }
 
-export default topScore;
+export default fetchTopScore;

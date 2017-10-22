@@ -9,18 +9,18 @@ import * as actions from '../../actions/';
 export class GuessForm extends React.Component {
 	constructor(props) {
 		super(props);
-		console.log('(1) GuessForm; props');
-		console.log(props);
-		console.log('(2) GuessForm; props');
-		this.handleKeyPress = this.handleKeyPress.bind(this);
+		this.checkUserInput = this.props.onUserInput.bind(this);
+		this.handleKeyPress = this.verifyKeyPress.bind(this);
 	}
 
-	handleKeyPress(event) {
+	verifyKeyPress(event) {
 		if (event.keyCode === 13 || event.which === 13) {
-			// const input = this.guessInput.value;
-			this.props.actions.userGuessedNumber(this.guessInput.value);
-			this.guessInput.value = '';
-			// this.handleGuess();
+			const input = this.guessInput.value;
+			if (!Number.isNaN(this.guessInput.value)) {
+				const verify = parseInt(input, 10);
+				this.checkUserInput(verify);
+				this.guessInput.value = '';
+			}
 		}
 	}
 
@@ -44,36 +44,11 @@ export class GuessForm extends React.Component {
 }
 
 GuessForm.propTypes = {
-//	random: PropTypes.number.isRequired,
-//	guessed: PropTypes.arrayOf(PropTypes.number).isRequired,
-	actions: PropTypes.shape({
-		userGuessedNumber: PropTypes.func.isRequired,
-		sendScore: PropTypes.func.isRequired,
-	}).isRequired,
+	onUserInput: PropTypes.func.isRequired,
 };
-
-const mapStateToProps = state => ({
-	random: state.boardReducer.random,
-	guessed: state.boardReducer.guessed,
-});
 
 const mapDispatchToProps = dispatch => ({
 	actions: bindActionCreators(actions, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(GuessForm);
-
-
-	// handleGuess() {
-	// 	const input = this.guessInput.value;
-	// 	this.props.actions.userGuessedNumber(input);
-	// 	this.guessInput.value = '';
-	// 	if (!Number.isNaN(input)) {
-	// 		const guess = parseInt(input, 10);
-	// 		this.props.actions.userGuessedNumber(guess);
-	// 		this.guessInput.value = '';
-	// 		if (guess === this.props.random) {
-	// 			this.props.actions.sendScore(this.props.guessed.length + 1);
-	// 		}
-	// 	}
-	// }
+export default connect(null, mapDispatchToProps)(GuessForm);

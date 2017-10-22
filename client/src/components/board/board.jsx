@@ -12,27 +12,37 @@ import GuessList from './GuessList';
 export class Board extends React.Component {
 	constructor(props) {
 		super(props);
+		console.log('>>> Board; constructor');
 		console.log(props);
+		console.log('<<< Board; constructor');
+		this.handleUserInput = this.checkUserInput.bind(this);
 	}
+
 	componentDidMount() {
-		// this.props.dispatch(actions.fetchScore());
 		this.props.actions.handleNewGame();
 		this.props.actions.fetchScore();
 	}
 
 	componentWillUpdate(nextProps, nextState) {
-		console.log('(1) Board; componentWillUpdate');
+		console.log('>>> Board; componentWillUpdate');
 		console.log(nextProps);
 		console.log(nextState);
-		console.log('(2) Board; componentWillUpdate');
+		console.log('<<< Board; componentWillUpdate');
 		// if (nextState.open == true && this.state.open == false) {
 		// 	this.props.onWillOpen();
 		// }
 	}
 
+	checkUserInput(input) {
+		console.log(`(checkUserInput) input ${input}`);
+		this.props.actions.userGuessedNumber(input);
+		if (input === this.props.random) {
+			this.props.actions.sendScore(this.props.guess + 1);
+		}
+	}
+
 	render() {
-		// this.props.actions.sendScore(this.props.guessed.length + 1);
-		const form = this.props.completed ? '' : <GuessForm />;
+		const form = this.props.completed ? '' : <GuessForm onUserInput={this.handleUserInput} />;
 		return (
 			<section className="board">
 				<div>
@@ -60,6 +70,8 @@ Board.propTypes = {
 	actions: PropTypes.shape({
 		handleNewGame: PropTypes.func.isRequired,
 		fetchScore: PropTypes.func.isRequired,
+		userGuessedNumber: PropTypes.func.isRequired,
+		sendScore: PropTypes.func.isRequired,
 	}).isRequired,
 };
 
@@ -68,7 +80,7 @@ const mapStateToProps = state => ({
 	guess: state.boardReducer.guessed.length,
 	random: state.boardReducer.random,
 	completed: state.boardReducer.completed,
-	best: state.topScoreReducer.best,
+	best: state.fetchTopScoreReducer.best,
 });
 
 const mapDispatchToProps = dispatch => ({

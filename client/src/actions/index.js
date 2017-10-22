@@ -1,5 +1,5 @@
 
 export * from './board.actions';
 export * from './help.actions';
-export * from './score.actions';
-export * from './topScore.actions';
+export * from './sendGameScore.actions';
+export * from './fetchTopScore.actions';
