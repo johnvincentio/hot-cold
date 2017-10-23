@@ -39,7 +39,8 @@ $palettes: (
 			bg: app-color("bg7-color"),
 			button: app-color("dark-color"),
 			button-active: darken(app-color("white-color"), 25%)
-		)
+		),
+	world-record: (bg: app-color("bg5-color"), text: app-color("white-color")),
 );
 
 @function palette($palette, $tone: "base") {

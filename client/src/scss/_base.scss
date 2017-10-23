@@ -136,7 +136,8 @@ header nav button {
 }
 
 .world-record {
-	background-color: green;
+	background-color: palette(world-record, bg);
+	color: palette(world-record, text);
 	padding: 1em 0.5em;
 }
 

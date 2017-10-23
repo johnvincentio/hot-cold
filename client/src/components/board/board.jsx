@@ -12,29 +12,19 @@ import GuessList from './GuessList';
 export class Board extends React.Component {
 	constructor(props) {
 		super(props);
-		console.log('>>> Board; constructor');
-		console.log(props);
-		console.log('<<< Board; constructor');
+		// console.log('>>> Board; constructor');
+		// console.log(props);
+		// console.log('<<< Board; constructor');
+		this.handleNewGame = this.props.onNewGame.bind(this);
 		this.handleUserInput = this.checkUserInput.bind(this);
 	}
 
 	componentDidMount() {
-		this.props.actions.handleNewGame();
-		this.props.actions.fetchScore();
-	}
-
-	componentWillUpdate(nextProps, nextState) {
-		console.log('>>> Board; componentWillUpdate');
-		console.log(nextProps);
-		console.log(nextState);
-		console.log('<<< Board; componentWillUpdate');
-		// if (nextState.open == true && this.state.open == false) {
-		// 	this.props.onWillOpen();
-		// }
+		this.handleNewGame();
 	}
 
 	checkUserInput(input) {
-		console.log(`(checkUserInput) input ${input}`);
+		// console.log(`(checkUserInput) input ${input}`);
 		this.props.actions.userGuessedNumber(input);
 		if (input === this.props.random) {
 			this.props.actions.sendScore(this.props.guess + 1);
@@ -54,7 +44,7 @@ export class Board extends React.Component {
 					Guess #<span>{this.props.guess}</span>
 				</div>
 				<GuessList />
-				<div className="random">Random #{this.props.random}</div>
+				{/* <div className="random">Random #{this.props.random}</div> */}
 				<div className="world-record">World record is #{this.props.best} guesses.</div>
 			</section>
 		);
@@ -62,14 +52,13 @@ export class Board extends React.Component {
 }
 
 Board.propTypes = {
+	onNewGame: PropTypes.func.isRequired,
 	comment: PropTypes.string.isRequired,
 	guess: PropTypes.number.isRequired,
 	random: PropTypes.number.isRequired,
 	completed: PropTypes.bool.isRequired,
 	best: PropTypes.number.isRequired,
 	actions: PropTypes.shape({
-		handleNewGame: PropTypes.func.isRequired,
-		fetchScore: PropTypes.func.isRequired,
 		userGuessedNumber: PropTypes.func.isRequired,
 		sendScore: PropTypes.func.isRequired,
 	}).isRequired,

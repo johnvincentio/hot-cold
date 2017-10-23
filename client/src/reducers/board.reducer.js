@@ -17,10 +17,10 @@ const initialState = {
 };
 
 function board(state = initialState, action) {
-	console.log('>>> reducer; board; action');
-	console.log(action);
-	console.log(state);
-	console.log('<<< reducer; board; action');
+	// console.log('>>> board reducer; action, state');
+	// console.log(action);
+	// console.log(state);
+	// console.log('<<< board reducer; action, state');
 	switch (action.type) {
 	case USER_GUESSED_NUMBER: {
 		const comment = Utils.handleComment(state.random, action.guess);

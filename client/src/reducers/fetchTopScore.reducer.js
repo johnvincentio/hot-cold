@@ -9,10 +9,10 @@ const initialState = {
 };
 
 function fetchTopScore(state = initialState, action) {
-	console.log('>>> reducer; topScore; action');
-	console.log(state);
-	console.log(action);
-	console.log('<<< reducer; topScore; action');
+	// console.log('>>> fetchTopScore reducer; state, action');
+	// console.log(state);
+	// console.log(action);
+	// console.log('<<< fetchTopScore reducer; state, action');
 	switch (action.type) {
 	case FETCH_SCORE_SUCCESS: {
 		return Object.assign({}, state, {

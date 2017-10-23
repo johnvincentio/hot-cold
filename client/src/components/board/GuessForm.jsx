@@ -16,11 +16,12 @@ export class GuessForm extends React.Component {
 	verifyKeyPress(event) {
 		if (event.keyCode === 13 || event.which === 13) {
 			const input = this.guessInput.value;
-			if (!Number.isNaN(this.guessInput.value)) {
+			// eslint-disable-next-line no-restricted-globals
+			if (!isNaN(input)) {
 				const verify = parseInt(input, 10);
 				this.checkUserInput(verify);
-				this.guessInput.value = '';
 			}
+			this.guessInput.value = '';
 		}
 	}
 
