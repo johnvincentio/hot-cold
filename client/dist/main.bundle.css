@@ -1,0 +1,175 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+.hide {
+  display: none !important; }
+
+.display {
+  display: block; }
+
+.center {
+  text-align: center; }
+
+body {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: helvetica;
+  background-color: #394264;
+  text-align: center; }
+
+input,
+textarea,
+select,
+button {
+  font-family: helvetica; }
+
+.game {
+  background-color: #1f253d;
+  color: white;
+  margin: 12px;
+  height: 96vh; }
+
+header nav button {
+  background-color: #1f253d;
+  color: white;
+  border: none transparent;
+  outline: none;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.5em;
+  text-align: center;
+  padding: 15px;
+  cursor: pointer; }
+  header nav button:hover, header nav button:focus {
+    color: #bfbfbf; }
+  header nav button:first-child {
+    float: left; }
+  header nav button:last-child {
+    float: right; }
+
+.board {
+  width: 380px;
+  margin: 0 auto;
+  padding: 50px 0; }
+  .board h1 {
+    color: white;
+    font-weight: 900;
+    font-size: 3em;
+    padding: 1em; }
+
+.comment {
+  background-color: #cc324b;
+  color: white;
+  font-weight: 400;
+  font-size: 1.5em;
+  padding: 1em 0.5em; }
+
+.guess-form {
+  background-color: #394264; }
+  .guess-form input {
+    background-color: #50597b;
+    color: white;
+    width: 300px;
+    height: 50px;
+    margin: 0.9em auto;
+    border: solid 1px #1f253d;
+    border-radius: 4px; }
+    .guess-form input.guess-text {
+      font-size: 2em;
+      text-align: center; }
+
+.guessed-list {
+  background-color: #11a8ab;
+  text-align: left; }
+  .guessed-list div {
+    background-color: #1a4e95;
+    display: inline-block;
+    width: 8%;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    padding: 5px 0;
+    border-radius: 3px; }
+
+.guess {
+  background-color: #394264;
+  color: black;
+  font-weight: 400;
+  font-size: 1.5em;
+  padding: 1em 0.5em; }
+  .guess span {
+    color: #f39c12;
+    padding: 0 5px; }
+
+.random {
+  background-color: green;
+  padding: 1em 0.5em; }
+
+.world-record {
+  background-color: #1a4e95;
+  color: white;
+  padding: 1em 0.5em; }
+
+.overlay {
+  background-color: #e74c3c;
+  width: 97.5%;
+  height: 96vh;
+  z-index: 1000;
+  position: absolute;
+  top: 12px;
+  left: 12px; }
+  .overlay .content {
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+    width: 600px;
+    top: 15%;
+    margin: auto auto; }
+    .overlay .content h3 {
+      margin: 0;
+      padding: 0.4em;
+      text-align: center;
+      font-size: 2.4em;
+      font-weight: 300;
+      opacity: 0.8;
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 3px 3px 0 0; }
+    .overlay .content > div {
+      padding: 15px 40px 30px;
+      font-weight: 300;
+      font-size: 1.15em; }
+      .overlay .content > div p {
+        padding: 10px 0;
+        line-height: 2em;
+        text-align: justify; }
+      .overlay .content > div ul {
+        margin-bottom: -30px;
+        padding: 0 0 30px 20px;
+        text-align: left; }
+        .overlay .content > div ul li {
+          padding: 5px 0;
+          display: block;
+          list-style-type: disc;
+          line-height: 1.5em; }
+          .overlay .content > div ul li strong {
+            text-decoration: underline;
+            font-weight: 300; }
+      .overlay .content > div button {
+        background-color: #1f253d;
+        color: white;
+        border: none transparent;
+        outline: none;
+        text-decoration: none;
+        font-weight: 300;
+        font-size: 1em;
+        text-align: center;
+        padding: 15px;
+        border-radius: 3px;
+        cursor: pointer; }
+        .overlay .content > div button:hover, .overlay .content > div button:focus {
+          color: #bfbfbf; }
+
+/*# sourceMappingURL=main.bundle.css.map*/

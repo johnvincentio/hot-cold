@@ -49,36 +49,6 @@ const logRequest = (req, res, next) => {
 module.exports = (app) => {
 	mongoose.Promise = global.Promise;
 
-	// app.use(proxy('/api/', {
-	// 	target: 'http://localhost:8025',
-	// 	// target: 'https://jsonbin.org',
-	// 	logLevel: 'debug', // Keep the logs clean
-	// 	ws: true, // Proxy websockets too
-	// 	// router: {
-	// 	// 	// Anything to /api goes to our backend
-	// 	// 	'localhost:8025/api': 'http://localhost:3001',
-	// 	// },
-	// 	changeOrigin: true,
-	// }));
-
-	// app.use(proxy('http://localhost:8025/', {
-	// 	logLevel: 'warn', // Keep the logs clean
-	// 	ws: true, // Proxy websockets too
-	// 	router: {
-	// 		// Anything to /api goes to our backend
-	// 		'localhost:8025/api': 'http://localhost:3001',
-	// 	},
-	// }));
-
-	// app.use(proxy('http://localhost:8025/', {
-	// 	logLevel: 'warn', // Keep the logs clean
-	// 	ws: true, // Proxy websockets too
-	// 	router: {
-	// 		// Anything to /api goes to our backend
-	// 		'localhost:8025/api': 'http://localhost:3001',
-	// 	},
-	// }));
-
 	app.use((req, res, next) => {
 		res.header('Access-Control-Allow-Origin', '*');
 		res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
@@ -93,9 +63,7 @@ module.exports = (app) => {
 
 	app.use(morgan('common', { stream: logger.stream }));
 
-	app.use(express.static(path.resolve(__dirname, '../public')));
-
-	app.use('/assets', express.static(path.resolve(__dirname, '../public/assets')));
+	app.use(express.static(path.resolve(__dirname, '../../client/dist/')));
 
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({ extended: false }));
@@ -105,3 +73,33 @@ module.exports = (app) => {
 	app.all('*', logRequest);
 	app.all('*', listCookies);
 };
+
+// app.use(proxy('/api/', {
+// 	target: 'http://localhost:8025',
+// 	// target: 'https://jsonbin.org',
+// 	logLevel: 'debug', // Keep the logs clean
+// 	ws: true, // Proxy websockets too
+// 	// router: {
+// 	// 	// Anything to /api goes to our backend
+// 	// 	'localhost:8025/api': 'http://localhost:3001',
+// 	// },
+// 	changeOrigin: true,
+// }));
+
+// app.use(proxy('http://localhost:8025/', {
+// 	logLevel: 'warn', // Keep the logs clean
+// 	ws: true, // Proxy websockets too
+// 	router: {
+// 		// Anything to /api goes to our backend
+// 		'localhost:8025/api': 'http://localhost:3001',
+// 	},
+// }));
+
+// app.use(proxy('http://localhost:8025/', {
+// 	logLevel: 'warn', // Keep the logs clean
+// 	ws: true, // Proxy websockets too
+// 	router: {
+// 		// Anything to /api goes to our backend
+// 		'localhost:8025/api': 'http://localhost:3001',
+// 	},
+// }));
