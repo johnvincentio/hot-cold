@@ -1,5 +1,5 @@
 
-import 'isomorphic-fetch';
+// import 'isomorphic-fetch';
 
 import {
 	FETCH_SCORE_SUCCESS,

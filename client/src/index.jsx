@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import createStore from './store';
+
+// eslint-disable-next-line import/no-named-as-default
 import Game from './components/Game';
 
 const initialState = {};

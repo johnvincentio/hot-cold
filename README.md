@@ -32,3 +32,6 @@ middleware.express.js
 	});
 
 
+Preflight request first sends an HTTP Options request header.
+
+

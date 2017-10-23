@@ -59,6 +59,18 @@ module.exports = (app) => {
 	// 	},
 	// }));
 
+	app.use((req, res, next) => {
+		res.header('Access-Control-Allow-Origin', '*');
+		res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+		res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+		if (req.method === 'OPTIONS') {
+			logger.debug('Request method = "OPTIONS"');
+			res.end();
+		} else {
+			next();
+		}
+	});
+
 	app.use(morgan('common', { stream: logger.stream }));
 
 	app.use(express.static(path.resolve(__dirname, '../public')));
@@ -70,12 +82,15 @@ module.exports = (app) => {
 
 	app.use(cookieParser());
 
-	app.use((req, res, next) => {
-		res.header('Access-Control-Allow-Origin', '*');
-		res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-		res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-		next();
-	});
+	// app.use((req, res, next) => {
+	// 	res.header('Access-Control-Allow-Origin', '*');
+	// 	res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+	// 	res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+	// 	if (req.method === 'OPTIONS') {
+	// 		return res.status(200);
+	// 	}
+	// 	next();
+	// });
 
 	app.all('*', logRequest);
 	app.all('*', listCookies);

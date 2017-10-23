@@ -1,26 +1,27 @@
 
-import 'isomorphic-fetch';
+// import 'isomorphic-fetch';
 
-const defaultParams = {
-	mode: 'cors',
-	credentials: 'include',
-	headers: {
-		Accept: 'application/json',
-		'Content-Type': 'application/json; charset=utf-8',
-	},
-};
+// const defaultParams = {
+// 	mode: 'cors',
+// 	credentials: 'include',
+// 	headers: {
+// 		Accept: 'application/json',
+// 		'Content-Type': 'application/json; charset=utf-8',
+// 	},
+// };
 
 /* eslint-disable import/prefer-default-export */
 export const sendScore = score => () => {
-	console.log(`sendScore, score = ${score}`);
+	// console.log(`sendScore, score = ${score}`);
 	const data = {
 		headers: {
+			Accept: 'application/json',
 			'Content-Type': 'application/json; charset=utf-8',
 		},
 		method: 'POST',
 		body: JSON.stringify({ score }),
 	};
-	console.log(data);
+	// console.log(data);
 	const url = 'http://localhost:3001/api/score/send';
 	return fetch(url, data)
 		.then((response) => {
@@ -31,6 +32,7 @@ export const sendScore = score => () => {
 			}
 			return response;
 		})
+		/* eslint-disable no-console */
 		.then((success) => { console.log(success); })
 		.catch(error => console.log(error));
 };
