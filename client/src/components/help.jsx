@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-// import * as actions from '../help/help.actions';
-import * as actions from '../actions/';
+import * as actions from '../actions/help.actions';
+// import * as actions from '../actions/';
 
 export class Help extends React.Component {
 	constructor(props) {

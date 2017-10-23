@@ -39,7 +39,6 @@ class Utils {
 		if (diff === 0) {
 			return 'You Won. Click new game to play again';
 		}
-		//    console.log('<<< handleComment');
 		return 'ERROR in handleComment';
 	}
 }

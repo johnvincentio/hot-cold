@@ -4,25 +4,18 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-// import * as actions from '../navigation/navigation.actions';
 import * as actions from '../actions/';
 
 export class Navigation extends React.Component {
 	constructor(props) {
 		super(props);
+		this.handleNewGame = this.props.onNewGame.bind(this);
 		this.handleHelp = this.handleHelp.bind(this);
-		this.handleNewGame = this.handleNewGame.bind(this);
 	}
 
 	handleHelp(event) {
 		event.preventDefault();
 		this.props.actions.handleHelp();
-	}
-
-	handleNewGame(event) {
-		event.preventDefault();
-		this.props.actions.handleNewGame();
-		this.props.actions.fetchScore();
 	}
 
 	render() {
@@ -42,10 +35,9 @@ export class Navigation extends React.Component {
 }
 
 Navigation.propTypes = {
+	onNewGame: PropTypes.func.isRequired,
 	actions: PropTypes.shape({
-		fetchScore: PropTypes.func.isRequired,
 		handleHelp: PropTypes.func.isRequired,
-		handleNewGame: PropTypes.func.isRequired,
 	}).isRequired,
 };
 
