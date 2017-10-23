@@ -20,6 +20,7 @@ const app = express();
 
 let server;
 
+/* eslint-disable no-console */
 function runServer() {
 	return new Promise((resolve, reject) => {
 		server = app

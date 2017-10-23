@@ -3,7 +3,6 @@
  *
  * @module middlewareExpress
  * @requires express
- * @requires http-proxy-middleware
  * @requires morgan
  * @requires body-parser
  * @requires path
@@ -50,12 +49,33 @@ const logRequest = (req, res, next) => {
 module.exports = (app) => {
 	mongoose.Promise = global.Promise;
 
+	// app.use(proxy('/api/', {
+	// 	target: 'http://localhost:8025',
+	// 	// target: 'https://jsonbin.org',
+	// 	logLevel: 'debug', // Keep the logs clean
+	// 	ws: true, // Proxy websockets too
+	// 	// router: {
+	// 	// 	// Anything to /api goes to our backend
+	// 	// 	'localhost:8025/api': 'http://localhost:3001',
+	// 	// },
+	// 	changeOrigin: true,
+	// }));
+
 	// app.use(proxy('http://localhost:8025/', {
 	// 	logLevel: 'warn', // Keep the logs clean
 	// 	ws: true, // Proxy websockets too
 	// 	router: {
 	// 		// Anything to /api goes to our backend
-	// 		'localhost:8025/api': 'http://localhost:3000',
+	// 		'localhost:8025/api': 'http://localhost:3001',
+	// 	},
+	// }));
+
+	// app.use(proxy('http://localhost:8025/', {
+	// 	logLevel: 'warn', // Keep the logs clean
+	// 	ws: true, // Proxy websockets too
+	// 	router: {
+	// 		// Anything to /api goes to our backend
+	// 		'localhost:8025/api': 'http://localhost:3001',
 	// 	},
 	// }));
 
@@ -81,16 +101,6 @@ module.exports = (app) => {
 	app.use(bodyParser.urlencoded({ extended: false }));
 
 	app.use(cookieParser());
-
-	// app.use((req, res, next) => {
-	// 	res.header('Access-Control-Allow-Origin', '*');
-	// 	res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-	// 	res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-	// 	if (req.method === 'OPTIONS') {
-	// 		return res.status(200);
-	// 	}
-	// 	next();
-	// });
 
 	app.all('*', logRequest);
 	app.all('*', listCookies);

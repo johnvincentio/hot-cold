@@ -1,5 +1,5 @@
 
-// import 'isomorphic-fetch';
+import 'isomorphic-fetch';
 
 // const defaultParams = {
 // 	mode: 'cors',
@@ -22,7 +22,7 @@ export const sendScore = score => () => {
 		body: JSON.stringify({ score }),
 	};
 	// console.log(data);
-	const url = 'http://localhost:3001/api/score/send';
+	const url = '/api/score/send';
 	return fetch(url, data)
 		.then((response) => {
 			if (!response.ok) {

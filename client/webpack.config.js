@@ -1,4 +1,4 @@
-const webpack = require('webpack');
+// const webpack = require('webpack');
 const path = require('path');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -19,8 +19,11 @@ const config = {
 	devServer: {
 		contentBase: path.join(__dirname, 'dist'),
 		compress: true,
-		inline: true,
+		// inline: true,
 		port: 8025,
+		proxy: {
+			'/api/**': { target: 'http://localhost:3001', changeOrigin: true, secure: false },
+		},
 	},
 
 	module: {
@@ -65,3 +68,58 @@ const config = {
 };
 
 module.exports = config;
+
+/*
+		proxy: {
+			'/api/**': { target: 'http://[::]:3001', changeOrigin: true, secure: false },
+		},
+		proxy: {
+			'/api': 'http://localhost:3001',
+		},
+
+  proxy: {
+    "/api": {
+      "target": {
+        "host": "action-js.dev",
+        "protocol": 'http:',
+        "port": 80
+      },
+      ignorePath: true,
+      changeOrigin: true,
+      secure: false
+    }
+	}
+*/
+
+/*
+ devServer: {
+	port:8080,
+	host: "200.200.106.133",
+	https: true,
+	compress: true,
+	contentBase: './src/public',
+	historyApiFallback: true,
+	stats: 'minimal',
+	proxy: {
+		"**": "https://200.200.107.226",
+		secure: false
+	}
+}
+
+ devServer: {
+	port:8080,
+	host: "200.200.106.133",
+	https: true,
+	compress: true,
+	contentBase: './src/public',
+	historyApiFallback: true,
+	stats: 'minimal',
+        proxy: {
+            '**': {
+                target: 'https://200.200.107.226',
+                secure: false
+            }
+        }
+}
+
+*/

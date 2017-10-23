@@ -1,4 +1,8 @@
 
+package.json:
+	// "proxy": "http://localhost:3001",
+
+
 
 ## GET Url
 * http://localhost:8080/api/score/get
@@ -6,6 +10,9 @@
 * curl -H "Content-Type:application/json" "http://localhost:3000/api/score/get" 
 
 curl -H "Content-Type:application/json" "http://localhost:3001/api/score/get" 
+
+
+curl -H "Content-Type:application/json" "http://localhost:8025/api/score/get" 
 
 
 
