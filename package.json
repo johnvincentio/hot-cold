@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "cd server && node server.js",
-		"test": "cd server && LOG_LEVEL=info node_modules/mocha/bin/mocha ./test --exit",
+		"test": "cd server && LOG_LEVEL=info ./node_modules/mocha/bin/mocha ./test --exit",
 		"heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "keywords": [],
