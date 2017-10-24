@@ -14,6 +14,7 @@ const chaiHttp = require('chai-http');
 
 const { app, runServer, closeServer } = require('../../server');
 
+// eslint-disable-next-line no-unused-vars
 const should = chai.should();
 
 chai.use(chaiHttp);
@@ -27,9 +28,9 @@ describe('test-home; index.html', function () {
 		return closeServer();
 	});
 
-	it('silly test', function () {
-		console.log('silly test');
-	});
+	// it('silly test', function () {
+	// 	console.log('silly test');
+	// });
 
 	it('should get html', function () {
 		return chai.request(app)

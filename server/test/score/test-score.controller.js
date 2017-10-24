@@ -10,10 +10,12 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 
+// eslint-disable-next-line prefer-destructuring
 const expect = require('chai').expect;
 
 const { app, runServer, closeServer } = require('../../server');
 
+// eslint-disable-next-line no-unused-vars
 const should = chai.should();
 chai.use(chaiHttp);
 
