@@ -3,7 +3,10 @@ package.json:
 	// "proxy": "http://localhost:3001",
 
     "test": "LOG_LEVEL=info mocha ./test --exit",
-		
+
+		Creating ⬢ johnvincentio-hot-cold... done
+https://johnvincentio-hot-cold.herokuapp.com/ | https://git.heroku.com/johnvincentio-hot-cold.git
+
 
 ## GET Url
 * http://localhost:8080/api/score/get

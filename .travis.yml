@@ -1,2 +1,9 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: VHXv7qdVS0+FSVDAMDlCZiBUnpqG365HppHGjyWFFA8Ewli0r37qpmD02iMQgjaAOkrxIXGNFcT/FMviUC4aIs2vdFCvmI6M8msgSfqmM0xHp8KI5b1KQiPXLPenW5sfzQVhOblhJ39F3vOPygk8vIWuw33qpkB6ilPFopFD5b5yFYWcuZLLVCwvergrdxV+yKf32p+FGzbrFq+eZtk5tHh/EfPszSSBd+NE0ix4UQ/qpV3/fWKnZ9hoMVzEjhqEFn8edF8OoqftHOf9X1i0Jn4f4+KGVKE+y2NfUWWhV/au0scSfv/ytimrs67nkB6DiIqpws53l5pgwIj59sYKhWoFDFzkYCWl/Klr6qsVTuNMUB8SGPt98wLMwFB7gqV61XFFmRTkBucd387VGgRJj9zEZEcSRde65tPSMUf+22oFzlaMmUVgq4OIdqEHa5anVfxRJH18ro9371j5PM/4LdtjnqfiPlebiMvC2pn4NhSYk66IIbZ+cmo1hDX8OVR7Lsww9xmng7AWw44gS7t/jvFKW5hUl9ikTMFG7KPnEB80TM9Mx8h1oKhHO5y9Lsf+rCcjoI9OVuqBo+TYeoNm9MujqyqEyyIDxQrIewL4lBAENQaLJgo0kmIOtJ2Z2dibbio2X5Mg4tKoqTmwDZWUtCsuWZ+oyQ8285GD3srYEjQ=
+  app: johnvincentio-hot-cold
+  on:
+    repo: johnvincentio/hot-cold
