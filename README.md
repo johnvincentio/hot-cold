@@ -2,7 +2,8 @@
 package.json:
 	// "proxy": "http://localhost:3001",
 
-
+    "test": "LOG_LEVEL=info mocha ./test --exit",
+		
 
 ## GET Url
 * http://localhost:8080/api/score/get

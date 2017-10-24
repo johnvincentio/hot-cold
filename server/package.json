@@ -6,15 +6,13 @@
   "scripts": {
     "nodemon": "nodemon server.js",
     "start": "node server.js",
-    "test": "LOG_LEVEL=info mocha ./test",
+    "test": "LOG_LEVEL=info mocha ./test --exit",
     "esdoc": "./node_modules/.bin/esdoc -c ./esdoc.json"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "chai": "^4.1.2",
-    "chai-http": "^3.0.0",
     "esdoc": "^1.0.3",
     "eslint": "^4.9.0",
     "eslint-config-airbnb": "^16.1.0",
@@ -22,10 +20,12 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.4.0",
-    "faker": "^4.1.0",
     "mocha": "^4.0.1"
   },
   "dependencies": {
+		"chai": "^4.1.2",
+		"chai-http": "^3.0.0",
+		"faker": "^4.1.0",
     "body-parser": "^1.18.2",
     "cookie-parser": "^1.4.3",
     "dotenv": "^4.0.0",

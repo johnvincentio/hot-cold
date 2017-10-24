@@ -37,7 +37,7 @@ module.exports = {
 		logger.info('--- score/score.controller::sendScore');
 		const { score } = req.body;
 		logger.info(`User sent a score of ${score}`);
-		if (score < lowestScore) {
+		if (score > 0 && score < 101 && score < lowestScore) {
 			lowestScore = score;
 		}
 		logger.info(`Lowest score sent ${lowestScore}`);
