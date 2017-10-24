@@ -7,7 +7,7 @@
     "start": "cd server && node server.js",
 		"test": "cd server && npm install && LOG_LEVEL=info mocha ./test --exit",
 		"test-local": "cd server && LOG_LEVEL=info ./node_modules/mocha/bin/mocha ./test --exit",
-		"heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run prod"
+		"heroku-postbuild": "cd server && npm install && cd ../client && npm install --only=dev && npm install && npm run prod"
   },
   "keywords": [],
   "author": "",
