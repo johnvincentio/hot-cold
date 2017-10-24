@@ -1,6 +1,11 @@
 
 ☐ change port to 3000
 
+☐ doc https://webpack.github.io/docs/webpack-dev-server.html#proxy
+https://github.com/webpack/webpack-dev-server
+https://webpack.js.org/configuration/dev-server/
+https://www.npmjs.com/package/webpack-devserver
+
 ☐ remove port from api calls
 
 ☐ config.js; port is hardwired.
@@ -9,7 +14,7 @@ this is needed for server debug mode.
 ☐ what is a production build?
 	☐ react plugin complained about it
 
-☐ server unit tests
+✔ server unit tests @done (2017-10-24 10:34:59)
 ☐ client unit tests using jest
 
 ☐ run in production mode locally
