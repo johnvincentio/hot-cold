@@ -1,38 +1,23 @@
 
-☐ change port to 3000
+✘ change port to 3000 @cancelled (2017-10-26 20:48:46)
 
-☐ doc https://webpack.github.io/docs/webpack-dev-server.html#proxy
-https://github.com/webpack/webpack-dev-server
-https://webpack.js.org/configuration/dev-server/
-https://www.npmjs.com/package/webpack-devserver
-
-☐ remove port from api calls
+✔ remove port from api calls @done (2017-10-27 13:52:43)
 
 ☐ config.js; port is hardwired.
 this is needed for server debug mode.
 
-☐ what is a production build?
-	☐ react plugin complained about it
-
 ✔ server unit tests @done (2017-10-24 10:34:59)
 ☐ client unit tests using jest
 
-☐ run in production mode locally
+✔ run in production mode locally @done (2017-10-26 20:48:42)
 
-☐ deploy to heroku
+✔ deploy to heroku @done (2017-10-26 20:48:52)
 
-☐ how to run react app from node, doc this
+✔ how to run react app from node, doc this @done (2017-10-26 20:48:58)
 
 ☐ handle duplicate guess
 
-☐ doc the makefile work
-
-☐ review https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0
-
-☐ https://toddmotto.com/stateful-stateless-components
-
-☐ https://github.com/Matt-Esch/virtual-dom
-
+✔ doc the makefile work @done (2017-10-26 20:49:02)
 
 ✔ try project structure @done (2017-10-20 10:07:46)
 ✔ server apis @done (2017-10-20 10:07:34)
